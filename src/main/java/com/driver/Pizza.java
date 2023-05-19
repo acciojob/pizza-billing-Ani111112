@@ -9,6 +9,7 @@ public class Pizza {
     private boolean isCheeseAdded;
     private boolean isToppingAdded;
     private boolean isPacketNeeded;
+    private boolean isbillGenerated;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -60,23 +61,26 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        //for pizza price
-        if(isVeg)this.bill = "Base Price Of The Pizza: 300" + "\n";
-        else this.bill = "Base Price Of The Pizza: 400" + "\n";
+        if(isbillGenerated == false){
+            //for pizza price
+            if(isVeg)this.bill = "Base Price Of The Pizza: 300" + "\n";
+            else this.bill = "Base Price Of The Pizza: 400" + "\n";
 
-        //for extra chize
-        if (isCheeseAdded)this.bill += "Extra Cheese Added: 80" + "\n";
-        //for extra toppings added or not
-        if (isToppingAdded){
-            //if veg then toppings price
-            if (isVeg)this.bill += "Extra Cheese Added: 80" + "\n";
-            //if no veg then topping price
-            else this.bill += "Extra Toppings Added: 120" + "\n";
+            //for extra chize
+            if (isCheeseAdded)this.bill += "Extra Cheese Added: 80" + "\n";
+            //for extra toppings added or not
+            if (isToppingAdded){
+                //if veg then toppings price
+                if (isVeg)this.bill += "Extra Toppings Added: 70" + "\n";
+                    //if no veg then topping price
+                else this.bill += "Extra Toppings Added: 120" + "\n";
+            }
+            //for packet
+            if (isPacketNeeded)this.bill += "Paperbag Added: 20" + "\n";
+
+            this.bill += "Total Price: " + this.totalPrice;
         }
-        //for packet
-        if (isPacketNeeded)this.bill += "Paperbag Added: 20" + "\n";
-
-        this.bill += "Total Price: " + this.totalPrice;
+         this.isbillGenerated = true;
         return this.bill;
     }
 }
