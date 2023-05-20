@@ -78,7 +78,7 @@ public class Pizza {
             //for packet
             if (isPacketNeeded)this.bill += "Paperbag Added: 20" + "\n";
 
-            this.bill += "Total Price: " + this.totalPrice;
+            this.bill += "Total Price: " + this.totalPrice + "\n";
         }
          this.isbillGenerated = true;
         return this.bill;
